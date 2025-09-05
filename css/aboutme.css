@@ -1,0 +1,54 @@
+.aboutme {
+  background: var(--cor-1) url(../img/Imagens/bg-sup-left.png) no-repeat top
+    20px left 20px;
+}
+
+.aboutme-container {
+  max-width: 1200px;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 20px;
+  margin: 0% auto;
+  display: grid;
+  gap: 50px;
+}
+
+.aboutme h2 {
+  padding: 80px 0 0 60px;
+}
+
+.aboutme img {
+  padding: 20px 0 80px 60px;
+}
+
+.aboutme p {
+  padding: 0 80px 80px 80px;
+  text-align: justify;
+}
+
+@media (max-width: 800px) {
+  .aboutme-container {
+    max-width: 100%;
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+    padding: 10px;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .aboutme h2 {
+    margin-top: 20px;
+    padding: 20px 20px 0 20px;
+  }
+  .aboutme img {
+    display: grid;
+    text-align: center;
+    margin: auto;
+    max-width: 100%;
+    padding: 0px;
+  }
+  .aboutme p {
+    padding: 0 10px 10px 10px;
+    text-align: justify;
+  }
+}

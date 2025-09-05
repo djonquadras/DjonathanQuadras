@@ -1,0 +1,83 @@
+.introduction {
+  background-image: url("../img/Imagens/bg-supplychain-azul.png");
+  background-size: cover; /* Adiciona para responsividade */
+  background-position: center; /* Centraliza o bg */
+}
+
+.introduction-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Adiciona padding para não colar nas bordas */
+}
+
+.introduction-container h1 {
+  margin-top: 300px;
+}
+
+.introduction img {
+  padding-right: 0px;
+  max-width: 100%; /* Garante que a imagem não ultrapasse */
+  height: auto; /* Mantém a proporção */
+}
+
+@media (max-width: 800px) {
+  .introduction {
+    background-position: top center; /* Ajusta posição do bg no mobile */
+  }
+
+  .introduction-container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr; /* 1 coluna */
+    gap: 20px; /* Espaçamento entre elementos */
+    padding: 20px 15px; /* Padding lateral menor no mobile */
+    justify-items: center; /* Centraliza todos os itens do grid */
+    text-align: center; /* Centraliza texto */
+  }
+
+  .introduction-container h1,
+  .introduction-container h2 {
+    margin-top: 0;
+    padding: 10px;
+    font-size: 1.5rem;
+    grid-row: 1; /* Coloca o h1 na primeira linha */
+    width: 100%; /* Ocupa toda a largura */
+  }
+
+  .introduction-container span {
+    font-size: 2.5rem; /* Um pouco menor para mobile */
+  }
+
+  .introduction img {
+    display: block; /* Muda de grid para block */
+    max-width: 80%; /* Controla o tamanho da imagem */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    height: auto;
+    grid-row: 2; /* Coloca a imagem na segunda linha */
+  }
+}
+
+/* Ajuste adicional para mobile muito pequeno */
+@media (max-width: 480px) {
+  .introduction-container {
+    padding: 15px 10px;
+    gap: 15px;
+  }
+
+  .introduction-container h1 {
+    font-size: 1.3rem;
+  }
+  .introduction-container h2 {
+    font-size: 0.875rem;
+  }
+  .introduction-container span {
+    font-size: 2rem;
+  }
+
+  .introduction img {
+    max-width: 70%; /* Imagem um pouco menor */
+  }
+}

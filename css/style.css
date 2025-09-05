@@ -1,0 +1,13 @@
+/*utilidades*/
+@import "./utilidades/global.css";
+@import "./utilidades/cores.css";
+@import "./utilidades/tipografia.css";
+@import "./utilidades/componentes.css";
+
+@import "./header.css";
+@import "./introduction.css";
+@import "./aboutme.css";
+@import "./experiences.css";
+@import "./academicbg.css";
+@import "./artigos.css";
+@import "./footer.css";

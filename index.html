@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./favicon.svg" type="imagem/svg+xml">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Djonathan Quadras - PHD Candidate</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo"><img src="./img/Imagens/logo.svg" alt="Logo" width="80" height="80"></div>
+      <button class="menu-toggle" aria-label="Abrir menu">
+      </button>
+      <nav>
+        <ul class="header-menu font-1-s">
+          <li><a href="#aboutme">Introduction</a></li>
+          <li><a href="#experiences">Experiences</a></li>
+          <li><a href="#academicbg">Academic Background</a></li>
+          <li><a href="#papers">Papers</a></li>
+          <li><a href="#contact">Contact me</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <script>
+      // Esperar o DOM carregar completamente
+      document.addEventListener('DOMContentLoaded', function () {
+        // Elementos do DOM
+        const menuToggle = document.querySelector('.menu-toggle');
+        const headerMenu = document.querySelector('.header-menu');
+        const overlay = document.querySelector('.overlay');
+        const body = document.body;
+
+        // Verificar se os elementos existem
+        if (!menuToggle || !headerMenu) {
+          console.error('Elementos do menu não encontrados!');
+          return;
+        }
+
+        // Criar overlay se não existir
+        if (!overlay) {
+          const newOverlay = document.createElement('div');
+          newOverlay.className = 'overlay';
+          document.body.appendChild(newOverlay);
+        }
+
+        // Função para abrir o menu
+        function openMenu() {
+          menuToggle.classList.add('active');
+          headerMenu.classList.add('active');
+          if (overlay) overlay.classList.add('active');
+          body.style.overflow = 'hidden';
+        }
+
+        // Função para fechar o menu
+        function closeMenu() {
+          menuToggle.classList.remove('active');
+          headerMenu.classList.remove('active');
+          if (overlay) overlay.classList.remove('active');
+          body.style.overflow = '';
+        }
+
+        // Função para verificar se o menu está aberto
+        function isMenuOpen() {
+          return headerMenu.classList.contains('active');
+        }
+
+        // Abrir/fechar menu ao clicar no botão hamburger
+        menuToggle.addEventListener('click', function (e) {
+          e.stopPropagation(); // Impede a propagação do evento
+
+          if (isMenuOpen()) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        // Fechar menu ao clicar em um link do menu
+        const menuLinks = document.querySelectorAll('.header-menu a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) { // Só fecha em mobile
+              closeMenu();
+            }
+          });
+        });
+
+        // Fechar menu ao clicar no overlay
+        if (overlay) {
+          overlay.addEventListener('click', closeMenu);
+        }
+
+        // Fechar menu ao clicar fora dele
+        document.addEventListener('click', function (event) {
+          if (!isMenuOpen()) return;
+
+          const isClickInsideMenu = headerMenu.contains(event.target);
+          const isClickOnToggle = menuToggle.contains(event.target);
+
+          if (!isClickInsideMenu && !isClickOnToggle) {
+            closeMenu();
+          }
+        });
+
+        // Fechar menu ao pressionar ESC
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && isMenuOpen()) {
+            closeMenu();
+          }
+        });
+
+        // Fechar menu ao redimensionar para desktop
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 768 && isMenuOpen()) {
+            closeMenu();
+          }
+        });
+
+        // Prevenir que cliques dentro do menu fechem ele
+        headerMenu.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      });
+    </script>
+
+  </header>
+
+  <main class="introduction">
+    <div class="introduction-container">
+      <div>
+        <h1 class="font-1-xxl cor-AZ07">Djonathan Quadras<span class="font-1-xxxl cor-A05">.</span></h1>
+        <h2 class="font-1-l cor-6">PHD Candidate</h2>
+      </div>
+      <img src="./img/Imagens/Group 103.png" alt="Foto de Perfil" width="600" height="600">
+    </div>
+  </main>
+  <section class="aboutme" aria-label="aboutme">
+    <div class="aboutme-container">
+      <h2 class="font-1-xxl cor-AZ06" id="aboutme">ABOUT ME<span class="font-1-xxxl cor-A05">.</span></h2>
+      <div></div>
+      <img src="./img/Imagens/Group 104.png" alt="fotos" width="700" height="730">
+      <div>
+        <p class="font-2-l cor-12">Hi! I’m Djonathan Luiz de Oliveira Quadras, or “Djonny”, as you prefer. I’m Brazilian, from the southern state of Santa Catarina, but my path has taken me to discover new worlds in Colombia, Germany, and, now, Italy . I’m a researcher, currently developing my PhD project in the digitalization of fashion supply chains. Fashion is where I’ve focused much of my work, but I’ve also explored projects across agribusiness, tubing and piping, electric motors, and pharmaceuticals. I spend a lot of my time diving into simulations, optimization models, and AI. But, what really fuels me, though, isn’t just papers or projects. I’m equally passionate about culture and arts, mainly music and literature. Also, the academy gives me the chance to meet new people, immerse myself in different cultures, and see the world from different perspectives. That curiosity and connection keep me moving forward, both in research and in life.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="experiences" aria-label="">
+    <div class="experiences-container" id="experiences">
+      <h2 class="font-1-xxl cor-AZ06">EXPERIENCES<span class="font-1-xxxl cor-A05">.</span></h2>
+      <div></div>
+      <p class="font-2-l cor-12">Over the years, I have built a professional profile shaped by diverse experiences that connect research, industry, and international collaboration. Working across projects in different sectors and cultural contexts has allowed me to develop adaptability, a global perspective, and the ability to translate complex challenges into practical solutions. My roles have also strengthened my capacity to guide and mentor others.
+      </p>
+      <div class="empresa-container">
+        <li class="empresa-container-header">
+          <img src="./img/Ícones-experiencia/exp-icon-udf.svg" alt="">
+          <h3 class="empresa-nome font-1-xl cor-AZ10">University of Florence</h3>
+          <span class="empresa-ano font-1-xl cor-AZ09">2024 - 2025</span>
+        </li>
+        <div class="texto-empresa-container font-2-s">
+          <span class="empresa-funcao">Research Fellow</span>
+          <p class="empresa-texto">In this role, I led a project on the application of Artificial Intelligence in supply chains and actively participated in international collaborations with universities in Italy, Brazil, and Germany. I developed simulation models applied to real-world fashion and pharmaceutical systems. Additionally, I provided research guidance and consulting to master’s students, supporting them in designing and developing their own simulation models for their research projects.</p>
+        </div>
+      </div>
+
+      <div class="empresa-container">
+        <li class="empresa-container-header-esquerda">
+          <span class="empresa-ano font-1-xl cor-AZ09">2022 - 2024</span>
+          <h3 class="empresa-nome font-1-xl cor-AZ10">Malwee Group</h3>
+          <img src="./img/Ícones-experiencia/exp-icon-malwee.svg" alt="">
+        </li>
+
+        <div class="texto-empresa-container">
+          <span class="empresa-funcao">Supply Chain Analyst</span>
+          <p class="empresa-texto">In this position, I managed key procurement KPIs, while developing and maintaining dashboards to ensure transparent reporting. I built and maintained the procurement database to provide reliable information across the department and supported buyers in formulating effective negotiation strategies.</p>
+        </div>
+      </div>
+      <div class="empresa-container">
+        <li class="empresa-container-header">
+          <img src="./img/Ícones-experiencia/exp-icon-tigre.svg" alt="">
+          <h3 class="empresa-nome font-1-xl cor-AZ10">Tigre Group</h3>
+          <span class="empresa-ano font-1-xl cor-AZ09">2024 - 2024</span>
+        </li>
+        <div class="texto-empresa-container">
+          <span class="empresa-funcao">Supply Chain Analyst</span>
+          <p class="empresa-texto">In this role, I managed procurement KPIs across units in Brazil, Latin America, and the United States, while developing and maintaining dashboards to ensure transparent reporting. I supported raw material buyers in formulating effective negotiation strategies and provided data-driven insights to improve outcomes. My responsibilities also included analyzing global market indicators for PVC, polyethylene, and polypropylene, reporting their impact across global operations, and monitoring market trends to guide strategic sourcing decisions.</p>
+        </div>
+      </div>
+      <div class="empresa-container">
+        <li class="empresa-container-header-esquerda">
+          <span class="empresa-ano font-1-xl cor-AZ09">2022 - 2022</span>
+          <h3 class="empresa-nome font-1-xl cor-AZ10">BIBA</h3>
+          <img src="./img/Ícones-experiencia/exp-icon-biba.svg" alt="">
+        </li>
+
+        <div class="texto-empresa-container">
+          <span class="empresa-funcao">Temporary Research Fellow</span>
+          <p class="empresa-texto">I contributed to the Brazil-Germany Metamaintain project, where my research centered on simulation-based optimization for production planning and predictive maintenance.</p>
+        </div>
+      </div>
+      <div class="empresa-container">
+        <li class="empresa-container-header">
+          <img src="./img/Ícones-experiencia/exp-icon-prologis.svg" alt="">
+          <h3 class="empresa-nome font-1-xl cor-AZ10">ProLogIS</h3>
+          <span class="empresa-ano font-1-xl cor-AZ09">2026 - 2023</span>
+        </li>
+        <div class="texto-empresa-container">
+          <span class="empresa-funcao">Research Fellow</span>
+          <p class="empresa-texto">In this role, I developed and implemented advanced simulation models in AnyLogic to represent complex systems and processes. Also, I applied optimization algorithms and AI methods to address real-world problems on  production and maintenance planning of flow-shop systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="academicbg">
+    <div class="academicbg-container" id="academicbg">
+      <h2 class="font-1-xxl cor-AZ06">ACADEMIC BACKGROUND<span class="font-1-xxxl cor-A05">.</span></h2>
+      <div></div>
+
+      <div class="container-faculdade-container">
+        <div class="faculdade-container">
+          <h3 class="nivel font-1-s cor-AZ06">BACHAREL<img src="./img/Ícones-formacao/1-form-icon-ufsc.svg" alt="icone ufsc"></h3>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">Industrial Engineering</h4>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">Universidade Federal de Santa Catarina (Brazil)</h4>
+        </div>
+        <div class="faculdade-container">
+          <h3 class="nivel font-1-s cor-AZ06">EXCHANGE<img src="./img/Ícones-formacao/2-form-icon-cuc.svg" alt="icone ufsc"></h3>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">Academic Exchange</h4>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">Universidad de la Costa (Colombia)</h4>
+        </div>
+        <div class="faculdade-container">
+          <h3 class="nivel font-1-s cor-AZ06">MASTER<img src="./img/Ícones-formacao/1-form-icon-ufsc.svg" alt="icone ufsc"></h3>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">Industrial Engineering</h4>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">Universidade Federal de Santa Catarina (Brazil)</h4>
+        </div>
+        <div class="faculdade-container">
+          <h3 class="nivel font-1-s cor-AZ06">PHD<img src="./img/Ícones-formacao/3-form-icon-udf.svg" alt="icone ufsc"></h3>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">Industrial Engineering</h4>
+          <div></div>
+          <h4 class="font-1-s cor-AZ06">University of Florence (Italy)</h4>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="certificacoes">
+      <h3 class="font-1-m cor-AZ06">CERTIFICATIONS</h3>
+      <div class="certificacoes-container">
+        <ul>
+          <li class="font-1-s cor-AZ06">Fundamentals of Reinforcement Learning<span> COURSERA</span></li>
+          <li class="font-1-s cor-AZ06">Certificação em liderança, capacidade de aprender e resiliência (Malala, Karnal e Flávio)<span> PUCRS</span></li>
+          <li class="font-1-s cor-AZ06">As Ferramentas do Cientista de Dados<span> COURSERA</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="idiomas">
+      <h3 class="font-1-m cor-AZ06">LANGUAGES</h3>
+      <div class="idioma-container font-1-s cor-AZ06">
+        <div class="cada-idioma-container font-1-s cor-AZ06">
+          <p>ENGLISH / <span> FLUENT</span></p>
+        </div>
+        <div class="cada-idioma-container font-1-s cor-AZ06">
+          <p>SPANISH / <span> FLUENT</span></p>
+        </div>
+        <div class="cada-idioma-container font-1-s cor-AZ06">
+          <p>PORTUGUESE / <span> NATIVE</span></p>
+        </div>
+        <div class="cada-idioma-container font-1-s cor-AZ06">
+          <p>ITALIAN / <span> FLUENT</span></p>
+        </div>
+      </div>
+  </section>
+  <section class="artigos">
+    <div class="artigos-container" id="papers">
+      <h2 class="font-1-xxl cor-AZ06">PAPERS<span class="font-1-xxxl cor-A05">.</span></h2>
+      <ul class="custom-controls">
+        <li class="font-2-m cor-AZ08">1</li>
+        <li class="font-2-m cor-AZ08">2</li>
+        <li class="font-2-m cor-AZ08">3</li>
+        <li class="font-2-m cor-AZ08">4</li>
+        <li class="font-2-m cor-AZ08">5</li>
+      </ul>
+      <div class="slide-wrapper">
+        <ul class="slide">
+          <li>
+            <h4 class="font-2-m cor-AZ08">Perspectives for the Application of Reinforcement Learning for the Integrated Order-Dispatching and Maintenance Scheduling</h4>
+            <img src="img/Imagens/paper 1 .png" alt="Artigo 1" width="400" height="400">
+            <p class="font-2-s cor-AZ08">This study reviews the use of Reinforcement Learning for integrating production and maintenance scheduling. While traditional approaches rely on heuristics and mathematical programming, Industry 4.0 technologies now enable data-driven methods that open new possibilities. The findings position Reinforcement Learning as a promising path for advancing industrial scheduling practices in the era of Industry 4.0.</p>
+          </li>
+          <li>
+            <h4 class="font-2-m cor-AZ08">Advancing pharmaceutical waste management: An agent-based approach to enhance consumer participation in circular economy</h4>
+            <img src="img/Imagens/paper 2 .png" alt="Artigo 2" width="400" height="400">
+            <p class="font-2-s cor-AZ08">This study explores the application of circular economy principles in the pharmaceutical sector, focusing on consumer behavior and medication return systems. Using an Agent-Based Modeling approach, we simulate how consumers purchase, use, and dispose of medications to evaluate strategies such as consumer education, pharmacist training, and expanded collection infrastructure. It serves as a decision-support tool for policymakers, helping design targeted interventions to improve pharmaceutical waste management and advance circular economy goals.</p>
+          </li>
+          <li>
+            <h4 class="font-2-m cor-AZ08">Machine Learning Applied to Logistics Decision Making: Improvements to the Soybean Seed Classification Process</h4>
+            <img src="img/Imagens/paper 3 .png" alt="Artigo 3" width="400" height="400">
+            <p class="font-2-s cor-AZ08">This paper presents a method to optimize soybean seed classification in Brazilian agribusiness by predicting lead and queue times to guide resource allocation. The approach combines discrete event simulation with machine learning in a real-world setting. Data are collected to structure simulation scenarios, simulations generate artificial historical data, and machine learning predicts processing and waiting times. The method is adaptable to other logistics problems involving both human and equipment resources.</p>
+          </li>
+          <li>
+            <h4 class="font-2-m cor-AZ08">Adaptive Simulation-Based Optimization for Production Scheduling: A Comparative Study</h4>
+            <img src="img/Imagens/paper 4 .png" alt="Artigo 4" width="400" height="400">
+            <p class="font-2-s cor-AZ08">This study evaluates adaptive simulation-based optimization approaches for flow shop production planning. The methods combine genetic algorithms with discrete event simulation to account for system stochasticity and optimize production performance. Results show that the rule-free sequencing approach outperforms the dispatching-rule method.</p>
+          </li>
+          <li>
+            <h4 class="font-2-m cor-AZ08">Towards fashion renting: identification of influencing factors for consumer behavior</h4>
+            <img src="img/Imagens/paper 5 .png" alt="Artigo 5" width="400" height="400">
+            <p class="font-2-s cor-AZ08">This paper addresses sustainability challenges in the fashion industry by examining Fashion Renting as a strategy to extend product lifecycles and reduce environmental impact. Through a systematic literature review, the study aggregates and clarifies the factors influencing customer behavior in collaborative consumption. The resulting framework provides guidance for researchers to develop more accurate simulations of consumer behavior and for practitioners to design effective business strategies in the fashion sharing economy.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="arrow-nav">
+      <button class="prev"></button>
+      <button class="next"></button>
+    </div>
+    <script type="module" src="js/script.js"></script>
+  </section>
+
+</body>
+<section class="footer">
+  <footer class="footer" id="contact" aria-label="Contato">
+    <div class="footer-container">
+      <div>
+        <img src="./img/Imagens/logo3.svg" alt="Logo" width="150" height="150">
+      </div>
+      <div class="footer-contato">
+        <div class="gmail">
+          <h3 class="font-1-m cor-3">djonathan.quadras@unifi.it</h3>
+        </div>
+        <div class="telefone">
+          <h3 class="font-1-m cor-3">+39 351 490 9086</h3>
+        </div>
+        <div class="linkedin">
+          <h3 class="font-1-m cor-3">www.linkedin.com/in/djonquadras/</h3>
+        </div>
+      </div>
+      <a class="footer-copyright font-2-l-v cor-AZ08">© 2025 Djonathan Quadras. Todos os direitos reservados.</a>
+    </div>
+  </footer>
+</section>
+
+</html>

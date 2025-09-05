@@ -1,0 +1,255 @@
+.academicbg + .artigos {
+  margin-top: -60px !important; /* Compensa o espaço */
+}
+
+.academicbg {
+  background: var(--cor-AZ12) url(../img/Imagens/bg-sup-left.png) no-repeat top
+    20px left 20px;
+}
+
+.academicbg-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block; /* Alterado de grid para block */
+  position: relative;
+  padding: 0 20px;
+}
+
+.academicbg h2 {
+  padding: 80px 80px 80px 20px;
+  max-width: 50%;
+}
+
+/* CONTAINER DE FACULDADES - ESTILO ÚNICO */
+.container-faculdade-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.faculdade-container {
+  background: var(--cor-AZ09);
+  border-radius: 5px;
+  grid-template-columns: 1fr;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  width: 250px;
+  height: 150px;
+  padding: 20px;
+}
+
+.nivel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.nivel img {
+  justify-self: end;
+  max-width: 40px;
+  height: auto;
+}
+
+/* CERTIFICAÇÕES - ESTILO PRÓPRIO */
+.certificacoes {
+  max-width: 1200px;
+  margin: 60px auto; /* Espaçamento superior */
+  display: block; /* Alterado de grid para block */
+  position: relative;
+  padding: 0 20px;
+}
+
+.certificacoes h3 {
+  padding: 20px 0 20px 0px;
+  text-align: left;
+}
+
+.certificacoes-container {
+  background: var(--cor-AZ09);
+  border-radius: 5px;
+  display: block; /* Alterado de grid para block */
+  padding: 20px;
+  width: 100%;
+}
+
+.certificacoes-container li {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.certificacoes-container li:last-child {
+  border-bottom: none;
+}
+
+/* IDIOMAS - ESTILO PRÓPRIO */
+.idiomas {
+  max-width: 1200px;
+  margin: 60px auto; /* Espaçamento superior */
+  display: block; /* Alterado de grid para block */
+  position: relative;
+  padding: 0 20px;
+}
+
+.idiomas h3 {
+  padding: 20px 0 20px 0px;
+  text-align: left;
+}
+
+.idioma-container {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.cada-idioma-container {
+  background: var(--cor-AZ09);
+  border-radius: 5px;
+  display: flex; /* Alterado de grid para flex */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: 100px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablet (até 1024px) */
+@media (max-width: 1024px) {
+  .academicbg h2 {
+    max-width: 70%;
+    padding: 60px 40px 60px 20px;
+  }
+
+  .container-faculdade-container,
+  .idioma-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet Medium (até 900px) */
+@media (max-width: 900px) {
+  .academicbg {
+    background-position: top 10px left 10px;
+    background-size: 120px;
+  }
+
+  .academicbg h2 {
+    max-width: 80%;
+    padding: 50px 30px 50px 20px;
+  }
+
+  .container-faculdade-container,
+  .idioma-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .certificacoes {
+    padding: 0 15px; /* Adiciona espaçamento lateral */
+  }
+
+  .certificacoes-container {
+    padding: 20px 4vw;
+    width: 90vw !important; /* Largura baseada na viewport */
+    max-width: calc(100% - 10vw);
+    box-sizing: border-box;
+  }
+
+  .certificacoes-container li {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 12px 8px; /* Padding reduzido */
+  }
+}
+
+/* Mobile Large (até 768px) */
+@media (max-width: 768px) {
+  .academicbg {
+    background: var(--cor-AZ12);
+  }
+
+  .academicbg h2 {
+    max-width: 80%;
+    text-align: start;
+  }
+
+  .container-faculdade-container,
+  .idioma-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .faculdade-container,
+  .cada-idioma-container {
+    margin-bottom: 30px;
+    min-height: 120px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .certificacoes-container {
+    margin-bottom: 40px;
+    padding: 15px;
+  }
+
+  .certificacoes-container li {
+    text-align: center;
+  }
+
+  .nivel {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .nivel img {
+    justify-self: center;
+    margin-top: 10px;
+  }
+
+  .certificacoes h3,
+  .idiomas h3 {
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+
+/* Mobile Small (até 480px) */
+@media (max-width: 480px) {
+  .academicbg-container,
+  .idiomas {
+    padding: 20px 15px;
+  }
+
+  .academicbg h2 {
+    margin-top: 20px;
+    padding: 20px 0 20px 0;
+    align-items: initial;
+  }
+
+  .faculdade-container,
+  .cada-idioma-container {
+    height: 150px;
+    width: 200px;
+    padding: 12px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .certificacoes-container {
+    margin: 0 auto;
+  }
+
+  .certificacoes-container li {
+    padding: 10px 5px;
+    text-align: center;
+  }
+}
