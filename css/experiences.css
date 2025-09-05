@@ -60,15 +60,25 @@
 }
 
 .empresa-container-header h3,
-.empresa-container-header img,
-.empresa-ano {
+.empresa-container-header img {
+  text-align: start;
+  align-self: center;
+  justify-self: start;
+}
+
+.empresa-container-header .empresa-ano {
+  text-align: end;
+  align-self: center;
+  justify-self: end;
+}
+
+.empresa-container-header-esquerda .empresa-ano {
   text-align: start;
   align-self: center;
   justify-self: start;
 }
 .empresa-container-header-esquerda h3,
-.empresa-container-header-esquerda img,
-.empresa-container-header-esquerda .empresa-ano {
+.empresa-container-header-esquerda img {
   text-align: end;
   align-self: center;
   justify-self: end;
